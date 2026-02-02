@@ -1,3 +1,60 @@
+/* Sticky Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1030;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+header.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar{
+  transition: all 0.3s ease;
+}
+
+header.scrolled .navbar {
+  background-color: #ffffff;
+}
+
+
+
+header.scrolled .navbar .nav-link {
+  color: var(--bs-gray-500) !important;
+}
+
+header.scrolled .navbar .navbar-toggler {
+  border: 2px solid var(--bs-dark) !important;
+  color: var(--bs-dark) !important;
+}
+
+/* Add padding to body to prevent content from going under fixed header */
+body {
+  padding-top: 70px;
+}
+
+/* Adjust for larger headers on mobile */
+@media (max-width: 991px) {
+  body {
+    padding-top: 80px;
+  }
+}
+
+/* Dark mode support */
+[data-bs-theme="dark"] header,
+[data-bs-theme="dark"] .navbar {
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] header.scrolled {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
 .marquee-container {
   overflow: hidden;
   white-space: nowrap;
@@ -33,14 +90,7 @@
 .marquee-item img {
   max-width: 150px;
   height: auto;
-  filter: grayscale(100%);
-  opacity: 0.7;
   transition: all 0.3s ease;
-}
-
-.marquee-item img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
 }
 
 @keyframes marquee {
@@ -132,7 +182,11 @@
   flex-shrink: 0;
   box-shadow: 0 4px 10px rgba(139, 61, 255, 0.2);
 }
-
+.testimonial-avatar.about-us {
+  height: 48px;
+  width: 48px;
+  font-size: 1.1rem;
+}
 .testimonial-info h5 {
   margin: 0;
   font-weight: 600;

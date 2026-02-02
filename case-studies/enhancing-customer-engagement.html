@@ -28,6 +28,7 @@
 
    <!-- Theme CSS -->
    <link rel="stylesheet" href="../assets/css/theme.min.css">
+   <link rel="stylesheet" href="../css/index.css" />
 
 
 
@@ -183,9 +184,9 @@
             </div>
           </div>
         </div>
-        <div class="offset-xxl-1 col-xxl-6 col-lg-6 offset-md-1 col-md-4">
+        <div class="offset-xxl-1 col-xxl-6 col-lg-7 col-md-5">
           <div class="row" id="ft-links">
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-3 col-md-12 col-12">
               <div class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
                 <h5>Quick Links</h5>
                 <a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
@@ -210,10 +211,13 @@
                   <li class="mb-2">
                     <a href="/contacts.html" class="text-decoration-none">Contact Us</a>
                   </li>
+                  <li class="mb-2">
+                    <a href="/careers.html" class="text-decoration-none">Careers</a>
+                  </li>
                 </ul>
               </div>
             </div>
-            <div class="col-lg-8 col-12">
+            <div class="col-lg-4 col-md-12 col-12">
               <div class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
                 <h5>Services</h5>
                 <a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
@@ -255,6 +259,41 @@
                       Development</a>
                   </li>
                 </ul>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-12">
+              <div class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
+                <h5>Our Presence</h5>
+                <a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
+                  href="#collapseLocations" role="button" aria-expanded="false" aria-controls="collapseLocations">
+                  <i class="bi bi-chevron-down"></i>
+                </a>
+              </div>
+              <div class="collapse d-lg-block" id="collapseLocations" data-bs-parent="#ft-links">
+                <div class="mb-0 py-3 py-lg-0">
+                  <div class="mb-4">
+                    <h6 class="mb-2 fw-semibold">Locations</h6>
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-1"><i class="bi bi-geo-alt-fill text-primary me-2"></i>USA</li>
+                      <li class="mb-1"><i class="bi bi-geo-alt-fill text-primary me-2"></i>India</li>
+                      <li class="mb-1"><i class="bi bi-geo-alt-fill text-primary me-2"></i>Dubai</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h6 class="mb-2 fw-semibold">Headquarters</h6>
+                    <p class="mb-2 d-flex gap-1 align-items-center">
+                      <i class="bi bi-building text-primary me-2"></i>
+                      <span>
+                        8765 Stockard Dr, Suite 103,
+                       Frisco, TX - 75034
+                      </span>
+                    </p>
+                    <p class="mb-0">
+                      <i class="bi bi-telephone-fill text-primary me-2"></i>
+                      <a href="tel:+14693644623" class="text-decoration-none">(469) 364-4623</a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -306,12 +345,23 @@
          <path
             d="M8 1H32C35.866 1 39 4.13401 39 8V32C39 35.866 35.866 39 32 39H8C4.13401 39 1 35.866 1 32V8C1 4.13401 4.13401 1 8 1Z" />
       </svg>
-   </div>
+   </div>  <!-- Main JS -->
+  <script src="../js/main.js"></script>
+
+
    <script>
       fetch("/header.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("header").innerHTML = data;
+          
+          // Initialize sticky header after header is loaded
+          if (window.initStickyHeader) {
+            window.initStickyHeader();
+          }
+          if (window.initSmoothScroll) {
+            window.initSmoothScroll();
+          }
         });
    </script>
    <!-- Libs JS -->
@@ -324,6 +374,7 @@
 
    <script src="../assets/libs/glightbox/dist/js/glightbox.min.js"></script>
    <script src="../assets/js/vendors/glight.js"></script>
+
 </body>
 
 </html>

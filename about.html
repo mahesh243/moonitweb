@@ -28,6 +28,7 @@
 
   <!-- Theme CSS -->
   <link rel="stylesheet" href="./assets/css/theme.min.css" />
+  <link rel="stylesheet" href="./css/index.css" />
 
   <title>MoonITSolutions</title>
 </head>
@@ -428,10 +429,9 @@
                       </li>
                     </ul>
                     <div class="d-flex align-items-center mt-5">
-                      <figure>
-                        <img src="../assets/images/avatar/avatar-1.jpg" alt="avatar"
-                          class="rounded-circle avatar avatar-lg" />
-                      </figure>
+                      <div class="testimonial-avatar bg-primary-gradient about-us">
+                        JS
+                      </div>
                       <div class="ms-3">
                         <h4 class="h5 mb-0">Joshua Smith</h4>
                         <small>Architect</small>
@@ -534,9 +534,9 @@
             </div>
           </div>
         </div>
-        <div class="offset-xxl-1 col-xxl-6 col-lg-6 offset-md-1 col-md-4">
+        <div class="offset-xxl-1 col-xxl-6 col-lg-7 col-md-5">
           <div class="row" id="ft-links">
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-3 col-md-12 col-12">
               <div class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
                 <h5>Quick Links</h5>
                 <a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
@@ -547,24 +547,27 @@
               <div class="collapse d-lg-block" id="collapseAccounts" data-bs-parent="#ft-links">
                 <ul class="list-unstyled mb-0 py-3 py-lg-0">
                   <li class="mb-2">
-                    <a href="./index.html" class="text-decoration-none">Home</a>
+                    <a href="/index.html" class="text-decoration-none">Home</a>
                   </li>
                   <li class="mb-2">
-                    <a href="./about.html" class="text-decoration-none">About Us</a>
+                    <a href="/about.html" class="text-decoration-none">About Us</a>
                   </li>
                   <li class="mb-2">
-                    <a href="./blog.html" class="text-decoration-none">Blogs</a>
+                    <a href="/blog.html" class="text-decoration-none">Blogs</a>
                   </li>
                   <li class="mb-2">
-                    <a href="./case-studies.html" class="text-decoration-none">Case Studies</a>
+                    <a href="/case-studies.html" class="text-decoration-none">Case Studies</a>
                   </li>
                   <li class="mb-2">
-                    <a href="./contacts.html" class="text-decoration-none">Contact Us</a>
+                    <a href="/contacts.html" class="text-decoration-none">Contact Us</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="/careers.html" class="text-decoration-none">Careers</a>
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="col-lg-8 col-12">
+            <div class="col-lg-4 col-md-12 col-12">
               <div class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
                 <h5>Services</h5>
                 <a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
@@ -606,6 +609,41 @@
                       Development</a>
                   </li>
                 </ul>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-12">
+              <div class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
+                <h5>Our Presence</h5>
+                <a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
+                  href="#collapseLocations" role="button" aria-expanded="false" aria-controls="collapseLocations">
+                  <i class="bi bi-chevron-down"></i>
+                </a>
+              </div>
+              <div class="collapse d-lg-block" id="collapseLocations" data-bs-parent="#ft-links">
+                <div class="mb-0 py-3 py-lg-0">
+                  <div class="mb-4">
+                    <h6 class="mb-2 fw-semibold">Locations</h6>
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-1"><i class="bi bi-geo-alt-fill text-primary me-2"></i>USA</li>
+                      <li class="mb-1"><i class="bi bi-geo-alt-fill text-primary me-2"></i>India</li>
+                      <li class="mb-1"><i class="bi bi-geo-alt-fill text-primary me-2"></i>Dubai</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h6 class="mb-2 fw-semibold">Headquarters</h6>
+                    <p class="mb-2 d-flex gap-1 align-items-center">
+                      <i class="bi bi-building text-primary me-2"></i>
+                      <span>
+                        8765 Stockard Dr, Suite 103,
+                       Frisco, TX - 75034
+                      </span>
+                    </p>
+                    <p class="mb-0">
+                      <i class="bi bi-telephone-fill text-primary me-2"></i>
+                      <a href="tel:+14693644623" class="text-decoration-none">(469) 364-4623</a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -673,6 +711,9 @@
   <script src="./assets/libs/glightbox/dist/js/glightbox.min.js"></script>
   <script src="./assets/js/vendors/glight.js"></script>
 
+  <!-- Main JS -->
+  <script src="./js/main.js"></script>
+
   <!-- Header & Footer Loader -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -681,6 +722,14 @@
         .then(res => res.text())
         .then(html => {
           document.getElementById("header").innerHTML = html;
+          
+          // Initialize sticky header after header is loaded
+          if (window.initStickyHeader) {
+            window.initStickyHeader();
+          }
+          if (window.initSmoothScroll) {
+            window.initSmoothScroll();
+          }
         });
     });
   </script>

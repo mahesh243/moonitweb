@@ -28,6 +28,7 @@
 
    <!-- Theme CSS -->
    <link rel="stylesheet" href="./assets/css/theme.min.css">
+   <link rel="stylesheet" href="./css/index.css" />
 
 
 
@@ -589,12 +590,23 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer>  <!-- Main JS -->
+  <script src="./js/main.js"></script>
+
+
    <script>
       fetch("/header.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("header").innerHTML = data;
+          
+          // Initialize sticky header after header is loaded
+          if (window.initStickyHeader) {
+            window.initStickyHeader();
+          }
+          if (window.initSmoothScroll) {
+            window.initSmoothScroll();
+          }
         });
    </script>
    <!-- Libs JS -->
@@ -612,6 +624,7 @@
    <script src="./assets/libs/plyr/dist/plyr.min.js"></script>
    <script src="./assets/js/vendors/plyr.js"></script>
    <script defer src="https://www.youtube.com/iframe_api"></script>
+
 </body>
 
 </html>
