@@ -1,0 +1,171 @@
+/* Career Page Styles */
+
+/* Workplace Images Grid */
+.workplace-grid {
+    margin: 0;
+  }
+  
+  .workplace-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .workplace-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+  }
+  
+  .workplace-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .workplace-image:hover::after {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Culture Section */
+  .culture-list li {
+    font-size: 1.1rem;
+    padding-left: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .culture-list li:hover {
+    transform: translateX(5px);
+  }
+  
+  .culture-list i {
+    font-size: 1.25rem;
+  }
+  
+  /* Benefits Section */
+  .benefit-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+  }
+  
+  /* Job Cards */
+  .job-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+  }
+  
+  .job-card:hover {
+    border-left-color: var(--bs-primary);
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .job-card h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #212529;
+    transition: color 0.3s ease;
+  }
+  
+  .job-card:hover h4 {
+    color: var(--bs-primary);
+  }
+  
+  /* Filters */
+  .form-select:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(139, 61, 255, 0.25);
+  }
+  /* Responsive adjustments */
+  @media (max-width: 991px) {
+    .workplace-image {
+      height: 250px;
+    }
+  
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .career-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .workplace-image {
+      height: 200px;
+    }
+  
+    .culture-list li {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Animation for benefit cards */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .benefit-card {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .benefit-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .benefit-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .benefit-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .benefit-card:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  
+  .benefit-card:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  
+  .benefit-card:nth-child(6) {
+    animation-delay: 0.6s;
+  }
