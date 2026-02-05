@@ -28,6 +28,13 @@
    <!-- Theme CSS -->
    <link rel="stylesheet" href="./assets/css/theme.min.css">
 
+   <!-- Intl Tel Input CSS -->
+   <link rel="stylesheet" href="./assets/libs/intl-tel-input/build/css/intlTelInput.min.css">
+   <style>
+      .iti { width: 100%; }
+      .iti__flag-container { z-index: 10; }
+   </style>
+
    <title>MoonITSolutions</title>
 </head>
 
@@ -244,8 +251,9 @@
                                  </div>
                                  <div class="col-md-12">
                                     <label for="contactPhoneInput" class="form-label">Phone</label>
-                                    <input type="tel" class="form-control" placeholder="Enter your phone number"
+                                    <input type="tel" class="form-control" placeholder=""
                                        id="contactPhoneInput" required />
+                                    <input type="hidden" id="contactPhoneFullNumber" name="phone" />
                                     <div class="invalid-feedback">Please enter phone.</div>
                                  </div>
                                  <div class="col-md-12">
@@ -589,6 +597,27 @@
 
    <!-- Theme JS -->
    <script src="./assets/js/theme.min.js"></script>
+
+   <!-- Intl Tel Input JS -->
+   <script src="./assets/libs/intl-tel-input/build/js/intlTelInput.min.js"></script>
+   <script>
+      const phoneInput = document.querySelector("#contactPhoneInput");
+      const hiddenPhone = document.querySelector("#contactPhoneFullNumber");
+      
+      const iti = window.intlTelInput(phoneInput, {
+         initialCountry: "us",
+         preferredCountries: ["us", "in", "ae", "gb", "ca"],
+         separateDialCode: true,
+         utilsScript: "./assets/libs/intl-tel-input/build/js/utils.js"
+      });
+
+      // Update hidden field with full number on input change
+      phoneInput.addEventListener("blur", function() {
+         if (hiddenPhone) {
+            hiddenPhone.value = iti.getNumber();
+         }
+      });
+   </script>
 
 </body>
 
