@@ -222,65 +222,87 @@
                         </div>
                      </div>
                      <div class="col-md-6 col-12">
+                        <!-- Success Alert -->
+                        <div id="formSuccessAlert" class="alert alert-success alert-dismissible fade" role="alert" style="display: none;">
+                           <div class="d-flex align-items-center">
+                              <i class="bi bi-check-circle-fill me-2 fs-4"></i>
+                              <div>
+                                 <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you soon.
+                              </div>
+                           </div>
+                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <div class="card shadow-sm">
                            <div class="card-body">
-                              <form class="row g-3 needs-validation" novalidate>
-                                 <div class="col-md-12">
-                                    <label for="contactFirstNameInput" class="form-label">
-                                       Name
-                                       <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" placeholder="Enter your name"
-                                       id="contactFirstNameInput" required />
-                                    <div class="invalid-feedback">Please enter firstname.</div>
-                                 </div>
-                                 <div class="col-md-12">
-                                    <label for="contactEmailInput" class="form-label">
-                                       Email
-                                       <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="email" class="form-control" placeholder="Enter your email"
-                                       id="contactEmailInput" required />
-                                    <div class="invalid-feedback">Please enter email.</div>
-                                 </div>
-                                 <div class="col-md-12">
-                                    <label for="contactCompanyNameInput" class="form-label">Company Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter your company name"
-                                       id="contactCompanyNameInput" required />
-                                    <div class="invalid-feedback">Please enter company name.</div>
-                                 </div>
-                                 <div class="col-md-12">
-                                    <label for="contactPhoneInput" class="form-label">Phone</label>
-                                    <input type="tel" class="form-control" placeholder=""
-                                       id="contactPhoneInput" required />
-                                    <input type="hidden" id="contactPhoneFullNumber" name="phone" />
-                                    <div class="invalid-feedback">Please enter phone.</div>
-                                 </div>
-                                 <div class="col-md-12">
-                                    <label for="contactServiceInput" class="form-label">Service of Interest</label>
-                                    <select name="" id="" class="form-select">
-                                       <option value="AI Solutions">AI Solutions</option>
-                                       <option value="Cloud Services">Cloud Services</option>
-                                       <option value="Data Analytics">Cybersecurity</option>
-                                       <option value="Cybersecurity">Data Analytics</option>
-                                       <option value="IT Consulting">IT Consulting</option>
-                                       <option value="Web Development">Web Development</option>
-                                       <option value="IT Support">IT Support</option>
-                                       <option value="Digital Marketing">Digital Marketing</option>
-                                       <option value="Other">Other</option>
-                                    </select>
-                                    <div class="invalid-feedback">Please enter phone.</div>
-                                 </div>
-                                 <div class="col-md-12">
-                                    <label for="contactTextarea" class="form-label">Message</label>
-                                    <textarea class="form-control" id="contactTextarea" placeholder="Write to us"
-                                       rows="4" required></textarea>
-                                    <div class="invalid-feedback">Please enter a message.</div>
-                                 </div>
-                                 <div class="d-grid">
-                                    <button class="btn btn-primary" type="submit">Send</button>
-                                 </div>
-                              </form>
+                              <form class="row g-3 needs-validation" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                                  <!-- Web3Forms Access Key -->
+                                  <input type="hidden" name="access_key" value="06ae5d0e-396a-4425-9201-6dc1ed6525b1">
+                                  
+                                  <!-- Honeypot Spam Protection -->
+                                  <input type="checkbox" name="botcheck" class="d-none" style="display: none;">
+                                  
+                                  <!-- Form Subject for Email -->
+                                  <input type="hidden" name="subject" value="New Contact Form Submission - MoonITSolutions">
+                                  
+                                  <!-- Redirect after submission -->
+                                  <input type="hidden" name="redirect" value="https://moonitsolutions.com/contacts.html?success=true">
+                                  
+                                  <div class="col-md-12">
+                                     <label for="contactFirstNameInput" class="form-label">
+                                        Name
+                                        <span class="text-danger">*</span>
+                                     </label>
+                                     <input type="text" class="form-control" placeholder="Enter your name"
+                                        id="contactFirstNameInput" name="name" required />
+                                     <div class="invalid-feedback">Please enter firstname.</div>
+                                  </div>
+                                  <div class="col-md-12">
+                                     <label for="contactEmailInput" class="form-label">
+                                        Email
+                                        <span class="text-danger">*</span>
+                                     </label>
+                                     <input type="email" class="form-control" placeholder="Enter your email"
+                                        id="contactEmailInput" name="email" required />
+                                     <div class="invalid-feedback">Please enter email.</div>
+                                  </div>
+                                  <div class="col-md-12">
+                                     <label for="contactCompanyNameInput" class="form-label">Company Name</label>
+                                     <input type="text" class="form-control" placeholder="Enter your company name"
+                                        id="contactCompanyNameInput" name="company" required />
+                                     <div class="invalid-feedback">Please enter company name.</div>
+                                  </div>
+                                  <div class="col-md-12">
+                                     <label for="contactPhoneInput" class="form-label">Phone</label>
+                                     <input type="tel" class="form-control" placeholder=""
+                                        id="contactPhoneInput" required />
+                                     <input type="hidden" id="contactPhoneFullNumber" name="phone" />
+                                     <div class="invalid-feedback">Please enter phone.</div>
+                                  </div>
+                                  <div class="col-md-12">
+                                     <label for="contactServiceInput" class="form-label">Service of Interest</label>
+                                     <select name="service" id="contactServiceInput" class="form-select">
+                                        <option value="AI Solutions">AI Solutions</option>
+                                        <option value="Cloud Services">Cloud Services</option>
+                                        <option value="Cybersecurity">Cybersecurity</option>
+                                        <option value="Data Analytics">Data Analytics</option>
+                                        <option value="IT Consulting">IT Consulting</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="IT Support">IT Support</option>
+                                        <option value="Digital Marketing">Digital Marketing</option>
+                                        <option value="Other">Other</option>
+                                     </select>
+                                     <div class="invalid-feedback">Please select a service.</div>
+                                  </div>
+                                  <div class="col-md-12">
+                                     <label for="contactTextarea" class="form-label">Message</label>
+                                     <textarea class="form-control" id="contactTextarea" name="message" placeholder="Write to us"
+                                        rows="4" required></textarea>
+                                     <div class="invalid-feedback">Please enter a message.</div>
+                                  </div>
+                                  <div class="d-grid">
+                                     <button class="btn btn-primary" type="submit">Send</button>
+                                  </div>
+                               </form>
                            </div>
                         </div>
                      </div>
@@ -453,12 +475,12 @@
    								class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
    								<h5>Services</h5>
    								<a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
-   									href="#collapseResources" role="button" aria-expanded="false"
-   									aria-controls="collapseResources">
+   									href="#collapseServices" role="button" aria-expanded="false"
+   									aria-controls="collapseServices">
    									<i class="bi bi-chevron-down"></i>
    								</a>
    							</div>
-   							<div class="collapse d-lg-block" id="collapseResources" data-bs-parent="#ft-links">
+   							<div class="collapse d-lg-block" id="collapseServices" data-bs-parent="#ft-links">
    								<ul class="list-unstyled mb-0 py-3 py-lg-0 text-nowrap">
    									<li class="mb-2">
    										<a href="/ai-solutions.html" class="text-decoration-none">AI Solutions</a>
@@ -498,12 +520,12 @@
    								class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
    								<h5>Locations</h5>
    								<a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
-   									href="#collapseResources" role="button" aria-expanded="false"
-   									aria-controls="collapseResources">
+   									href="#collapseLocations" role="button" aria-expanded="false"
+   									aria-controls="collapseLocations">
    									<i class="bi bi-chevron-down"></i>
    								</a>
    							</div>
-   							<div class="collapse d-lg-block" id="collapseResources" data-bs-parent="#ft-links">
+   							<div class="collapse d-lg-block" id="collapseLocations" data-bs-parent="#ft-links">
    								<ul class="list-unstyled mb-0 py-3 py-lg-0">
    									<li class="mb-2">
    										<a class="text-decoration-none">USA</a>
@@ -525,12 +547,12 @@
    								class="mb-3 pb-2 d-flex justify-content-between border-bottom border-bottom-lg-0 position-relative">
    								<h5>Headquarters</h5>
    								<a class="d-block d-lg-none stretched-link text-inherit" data-bs-toggle="collapse"
-   									href="#collapseResources" role="button" aria-expanded="false"
-   									aria-controls="collapseResources">
+   									href="#collapseHeadquarters" role="button" aria-expanded="false"
+   									aria-controls="collapseHeadquarters">
    									<i class="bi bi-chevron-down"></i>
    								</a>
    							</div>
-   							<div class="collapse d-lg-block" id="collapseResources" data-bs-parent="#ft-links">
+   							<div class="collapse d-lg-block" id="collapseHeadquarters" data-bs-parent="#ft-links">
    								<p class="text-link">305 Spring Creek Pkwy
                                                 Bldg A, Suite 101
                                                 Plano, TX - 75023.
@@ -615,6 +637,36 @@
       phoneInput.addEventListener("blur", function() {
          if (hiddenPhone) {
             hiddenPhone.value = iti.getNumber();
+         }
+      });
+   </script>
+
+   <!-- Form Success Message Script -->
+   <script>
+      // Check if form was submitted successfully
+      document.addEventListener('DOMContentLoaded', function() {
+         const urlParams = new URLSearchParams(window.location.search);
+         const successAlert = document.getElementById('formSuccessAlert');
+         
+         if (urlParams.get('success') === 'true' && successAlert) {
+            // Show the success alert
+            successAlert.style.display = 'block';
+            successAlert.classList.add('show');
+            
+            // Scroll to the alert
+            successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Remove the success parameter from URL without reload
+            const newUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, newUrl);
+            
+            // Auto-hide after 10 seconds
+            setTimeout(function() {
+               successAlert.classList.remove('show');
+               setTimeout(function() {
+                  successAlert.style.display = 'none';
+               }, 150);
+            }, 10000);
          }
       });
    </script>
